@@ -4,7 +4,44 @@ $(document).ready(function() {
 
   var navbar = $('nav');
 
-  $('.season').click(function() {
+  $('#modal .content a').click(function() {
+    $('#modal').css({'display': 'none'});
+  });
+
+  $('.season').click(function(e) {
+
+    var id = e.target.parentElement.id
+    switch(e.target.parentElement.id) {
+      case 'season-one':
+        $('#modal .content p').text('Season One');
+        $('#modal .content .image').css({"background-image": 'url(../assets/seasonone.jpg)'});
+        break;
+      case 'season-two':
+        $('#modal .content p').text('Season Two');
+        $('#modal .content .image').css({"background-image": 'url(../assets/seasontwo.jpg)'});
+        break;
+      case 'season-three':
+        $('#modal .content p').text('Season Three');
+        $('#modal .content .image').css({"background-image": 'url(../assets/seasonthree.jpg)'});
+        break;
+
+      case 'season-four':
+        $('#modal .content p').text('Season Four');
+        $('#modal .content .image').css({"background-image": 'url(../assets/seasonfour.jpg)'});
+        break;
+
+      case 'season-five':
+        $('#modal .content p').text('Season Five');
+        $('#modal .content .image').css({"background-image": 'url(../assets/seasonfive.jpg)'});
+        break;
+
+      case 'season-six':
+        $('#modal .content p').text('Season Six');
+        $('#modal .content .image').css({"background-image": 'url(../assets/seasonsix.jpg)'});
+        break;
+    }
+
+    $('#modal').css({'display': 'block'});
   });
 
   $(window).scroll(function() {
@@ -89,11 +126,11 @@ $(document).ready(function() {
       var prev = active - 1;
       if(prev < 0) prev = slides.length - 1;
 
-      slides.eq(active).animate({'left': '+=100%'}, 700);
-      slides.eq(prev).animate({'left': '0%'}, 700, function () {
+      slides.eq(prev).animate({'left': '0%'}, 700);
+      slides.eq(active).animate({'left': '100%'}, 700, function () {
 
         slides.eq(next).removeClass('next');
-        slides.eq(active).removeClass('active').addClass('next').css({'display': 'none'});
+        slides.eq(active).removeClass('active').addClass('next');
         slides.eq(prev).removeClass('prev').addClass('active');
 
         active = prev;
