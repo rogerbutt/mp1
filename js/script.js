@@ -80,7 +80,7 @@ $(document).ready(function() {
   var active = 0;
   slides.first().addClass('active');
   slides.eq(active + 1).addClass('next');
-  slides.eq(active + 1).css({'left': '100%', 'display': 'none'});
+  slides.eq(active + 1).css({'left': '100%'});
   slides.eq(slides.length - 1).addClass('prev').css({'left': '-100%'});
 
   var slidable = true;
@@ -96,7 +96,6 @@ $(document).ready(function() {
       var prev = active - 1;
       if(prev < 0) prev = slides.length - 1;
 
-      slides.eq(next).css({'display':'block'});
       slides.eq(active).animate({'left': '-=100%'}, 700);
       slides.eq(next).animate({'left': '0%'}, 700, function () {
 
@@ -108,7 +107,7 @@ $(document).ready(function() {
         next = active + 1;
         if(next === slides.length) next = 0;
 
-        slides.eq(next).css({'left': '100%', 'display': 'none'}).addClass('next');
+        slides.eq(next).css({'left': '100%'}).addClass('next');
         slidable = true;
       });
     }
