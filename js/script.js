@@ -69,10 +69,10 @@ $(document).ready(function() {
     }
   });
 
-  $('nav ul li a').click(function( e ){
+  $('nav ul li a').click(function(e){
     e.preventDefault();
-    var targetId = $(this).attr("href");
-    var top = $(targetId).offset().top - 50;
+    var id = $(this).attr("href");
+    var top = $(id).offset().top - 50;
     $('html, body').animate({scrollTop: top}, 500);
   });
 
